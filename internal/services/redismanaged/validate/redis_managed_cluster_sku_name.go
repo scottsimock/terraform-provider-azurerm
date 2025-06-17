@@ -8,6 +8,7 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/hashicorp/go-azure-sdk/resource-manager/redisenterprise/2024-10-01/redisenterprise"
 	"github.com/hashicorp/terraform-provider-azurerm/helpers/azure"
 )
 
@@ -23,7 +24,7 @@ func RedisManagedClusterSkuName(v interface{}, k string) (warnings []string, err
 	}
 
 	skuParts := strings.Split(value, "-")
-	validSkus := redismanaged.PossibleValuesForSkuName()
+	validSkus := redisenterprise.PossibleValuesForSkuName()
 	validValues := "2, 4, 6, ..."
 	// Validate the SKU Name section
 	for _, str := range validSkus {
